@@ -9,8 +9,8 @@ APIの仕様は`OpenApi.yml`を参照してください。
 `MODE`: サーバーのモード (`DEVELOPMENT`|`PRODUCTION`)<br>
 `AUTH_PORT`: 認証サーバーのポート番号<br>
 `AUTH_ALLOW_ORIGINS`: `PRODUCTION`モード時、サーバーとの通信を許可するオリジン (コンマ区切り) (例: `http://localhost:3000`)<br>
-`PRIVATE_KEY_FILE`: JWT生成用の秘密鍵のファイルパス (例: `/path/to/key.pem``)<br>
-`PUBLIC_KEY_FILE`: JWT復号用の公開鍵へのファイルパス (例: `/path/to/key.pub``)<br>
+`PRIVATE_KEY_FILE`: JWT生成用の秘密鍵のファイルパス (例: `/path/to/key.pem`)<br>
+`PUBLIC_KEY_FILE`: JWT復号用の公開鍵へのファイルパス (例: `/path/to/key.pub`)<br>
 `CONFIG_JSON_FILE`: サービスの設定ファイル名とパス (例: `/path/to/config.json`)<br>
 `DB_DIRECTORY`: DBのパス <br>
 `DB_PORT`: DBのポート番号<br>
