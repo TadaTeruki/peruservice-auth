@@ -1,0 +1,30 @@
+# docker-compose.yml for testing peruservice-auth locally
+version: '3'
+
+services:
+  peruservice-auth:
+    container_name: peruservice-auth
+    build:
+      context: .
+    tty: true
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    ports:
+      - ${AUTH_PORT}:${AUTH_PORT}
+  peruservice-db:
+    container_name: peruservice-db
+    image: postgres:15-alpine
+    tty: true
+    volumes:
+      - ${DB_DIRECTORY}/postgres/init:/docker-entrypoint-initdb.d
+      - ${DB_DIRECTORY}/postgres/data:/var/lib/postgresql/data
+    restart: always
+    environment:
+      POSTGRES_HOST: ${DB_HOST}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - ${DB_PORT}:${DB_PORT}

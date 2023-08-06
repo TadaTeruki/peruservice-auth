@@ -1,0 +1,87 @@
+openapi: '3.0.2'
+
+info:
+  title: peruservice-auth
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3014
+
+tags:
+    - name: utility
+      description: 各種機能のAPI
+    - name: auth
+      description: 認証を管理するAPI
+paths:
+  /:
+    get:
+      tags:
+        - utility
+      summary: 接続を確認する
+      responses:
+        '200':
+          description: OK
+  /login:
+    post:
+      tags:
+        - auth
+      summary: 管理者としてログインする
+      requestBody:
+        content:
+          application/json: 
+            schema:
+              $ref: '#/components/schemas/Login'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefreshToken'
+  /refresh:
+    post:
+      tags:
+        - auth
+      summary: アクセストークンを更新する
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessToken'
+      security:
+        - Bearer: []
+      
+components:
+  schemas:
+    Login:
+      type: object
+      properties:
+        adminID:
+          type: string
+          description: メールアドレス
+          example: hoge@example.com
+        password:
+          type: string
+          description: 暗号化されたパスワード
+          example: password
+    RefreshToken:
+      type: object
+      properties:
+        refreshToken:
+          type: string
+          example: 1234567890abcdefg
+    AccessToken:
+      type: object
+      properties:
+        accessToken:
+          type: string
+          example: 1234567890abcdefg
+        
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: Credentials or access token for API

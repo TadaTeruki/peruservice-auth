@@ -1,0 +1,4 @@
+{
+    "refresh_token_exp_duration_hour": 18,
+    "access_token_exp_duration_min": 60
+}
