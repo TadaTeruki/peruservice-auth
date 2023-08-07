@@ -1,6 +1,6 @@
 package api
 
 type Admin struct {
-	AdminID  string `db:"admin_id"`
+	AdminID  string `db:"id"`
 	Password string `db:"password"`
 }

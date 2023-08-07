@@ -87,9 +87,9 @@ func (s *Server) Login(c echo.Context) error {
 		})
 	}
 
-	// query row from db which has the same admin_id as req.AdminID
+	// query row from db which has the same admin.id as req.AdminID
 	var admin Admin
-	err := s.db.Get(&admin, "SELECT * FROM admin WHERE admin_id=$1", req.AdminID)
+	err := s.db.Get(&admin, "SELECT * FROM admin WHERE id=$1", req.AdminID)
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, ErrorResponse{
 			Status:  http.StatusBadRequest,
