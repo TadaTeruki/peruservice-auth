@@ -12,11 +12,11 @@ APIの仕様は`OpenApi.yml`を参照してください。
 `PRIVATE_KEY_FILE`: JWT生成用の秘密鍵のファイルパス (例: `/path/to/key.pem`)<br>
 `PUBLIC_KEY_FILE`: JWT復号用の公開鍵へのファイルパス (例: `/path/to/key.pub`)<br>
 `CONFIG_JSON_FILE`: サービスの設定ファイル名とパス (例: `/path/to/config.json`)<br>
-`DB_DIRECTORY`: DBのパス (デバッグ用) <br>
+`DB_DIRECTORY`: DBへのパス<br>
 `DB_PORT`: DBのポート番号<br>
-`DB_HOST`: DBのホスト名<br>
-`DB_USER`: DBのユーザー名<br>
-`DB_PASSWORD`: DBのパスワード<br>
+`DB_HOST`: DBのホスト<br>
+`DB_USER`: DBのログイン用ユーザー名<br>
+`DB_PASSWORD`: DBのログイン用パスワード<br>
 `DB_NAME`: DBの名前<br>
 
 ## 設定項目

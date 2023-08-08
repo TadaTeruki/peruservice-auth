@@ -13,8 +13,8 @@ services:
       - ./:/app
     ports:
       - ${AUTH_PORT}:${AUTH_PORT}
-  peruservice-db:
-    container_name: peruservice-db
+  auth-db:
+    container_name: auth-db
     image: postgres:15-alpine
     tty: true
     volumes:
