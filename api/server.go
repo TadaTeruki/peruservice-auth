@@ -28,7 +28,7 @@ func NewServer(e *echo.Echo) *Server {
 	db, err := sqlx.Open(
 		"postgres",
 		"host="+conf.envConf.DBHost+
-			" port="+conf.envConf.DBPort+
+			" port=5432"+
 			" user="+conf.envConf.DBUser+
 			" password="+conf.envConf.DBPassWord+
 			" dbname="+conf.envConf.DBName+

@@ -13,7 +13,6 @@ type envConfig struct {
 	AuthAllowOrigins []string
 	PrivateKeyFile   string
 	PublicKeyFile    string
-	DBPort           string
 	DBHost           string
 	DBUser           string
 	DBPassWord       string
@@ -64,11 +63,6 @@ func QueryServerConfig() (*ServerConfig, error) {
 		return nil, err
 	}
 
-	dbPort, err := getEnvVar("DB_PORT")
-	if err != nil {
-		return nil, err
-	}
-
 	dbHost, err := getEnvVar("DB_HOST")
 	if err != nil {
 		return nil, err
@@ -115,7 +109,6 @@ func QueryServerConfig() (*ServerConfig, error) {
 			AuthAllowOrigins: strings.Split(authAllowOrigins, ","),
 			PrivateKeyFile:   privateKeyFile,
 			PublicKeyFile:    publicKeyFile,
-			DBPort:           dbPort,
 			DBHost:           dbHost,
 			DBUser:           dbUser,
 			DBPassWord:       dbPassword,
